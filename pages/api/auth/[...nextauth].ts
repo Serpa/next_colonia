@@ -5,7 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 let userAccount = null;
 
 const prisma = new PrismaClient();
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcryptjs');
 
 const confirmPasswordHash = (plainPassword, hashedPassword) => {
   return new Promise((resolve) => {
