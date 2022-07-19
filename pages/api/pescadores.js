@@ -2,9 +2,8 @@ import { getToken } from "next-auth/jwt";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-const secret = process.env.NEXTAUTH_SECRET;
-
 export default async function pescadores(req, res) {
+  const secret = process.env.NEXT_AUTH_SECRET
   const token = await getToken({ req, secret });
   if (token) {
     if (req.method === "GET") {
