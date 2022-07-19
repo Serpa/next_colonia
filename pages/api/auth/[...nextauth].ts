@@ -93,35 +93,6 @@ export default NextAuth({
         console.error("Signin callback error:", err);
       }
     },
-    async register({
-      id,
-      usuario,
-      senha,
-      acesso,
-      firstName,
-      lastName,
-      email,
-      password,
-    }) {
-      try {
-        await prisma.usuarios.create({
-          data: {
-            id: id,
-            usuario: usuario,
-            senha: senha,
-            acesso: acesso,
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password,
-          },
-        });
-        return true;
-      } catch (err) {
-        console.error("Failed to register user. Error", err);
-        return false;
-      }
-    },
     async session({ session, user, token }) {
       if (userAccount !== null) {
         //session.user = userAccount;
