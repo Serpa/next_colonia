@@ -333,7 +333,7 @@ model todos {
 model usuarios {
   id           Int      @id @default(autoincrement())
   usuario      String   @unique(map: "usuario") @db.VarChar(20)
-  senha        String   @db.VarChar(10)
+  senha        String   @db.VarChar(250)
   acesso       Int
   firstName    String   @db.VarChar(250)
   lastName     String   @db.VarChar(250)
