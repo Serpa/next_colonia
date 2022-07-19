@@ -58,13 +58,12 @@ export default NextAuth({
       },
     }),
   ],
-  secret: process.env.SECRET,
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60,
   },
   jwt: {
-    secret: process.env.SECRET,
+    secret: process.env.NEXTAUTH_SECRET,
   },
   callbacks: {
     async signIn({ user, account, profile }) {
