@@ -5,7 +5,6 @@ const prisma = new PrismaClient();
 
 export default async function pescadores(req, res) {
   const token = await getToken({ req });
-  if (token) {
     if (req.method === "GET") {
       try {
         const getPescadores = await prisma.pescadores.findMany({
@@ -24,8 +23,5 @@ export default async function pescadores(req, res) {
         .status(405)
         .json({ error: "This request only supports POST requests" });
     }
-  } else {
-    res.status(401);
-  }
-  res.end();
+  
 };
