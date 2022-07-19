@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth"
 import { PrismaClient } from "@prisma/client";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -12,7 +12,7 @@ const confirmPasswordHash = (plainPassword, hashedPassword) => {
   });
 };
 
-export default NextAuth({
+export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   providers: [
     CredentialsProvider({
@@ -113,4 +113,6 @@ export default NextAuth({
       return token;
     },
   },
-});
+};
+
+export default NextAuth(authOptions)

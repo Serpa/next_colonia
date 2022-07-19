@@ -1,17 +1,17 @@
-import { getToken } from "next-auth/jwt";
 import { PrismaClient } from "@prisma/client";
+import { unstable_getServerSession } from "next-auth";
+import { authOptions } from "./auth/[...nextauth]"
 const prisma = new PrismaClient();
 
-export default async function pescadores(req, res) {
-  const secret = process.env.NEXT_AUTH_SECRET
-  const token = await getToken({ req, secret });
-  if (token) {
+export default async (req, res) => {
+  const session = await unstable_getServerSession(req, res, authOptions)
+  if (session) {
     if (req.method === "GET") {
       try {
         const getPescadores = await prisma.pescadores.findMany({
           where: {
             nome_colonia: {
-              id: token.user.acess,
+              id: session.token.user.acess,
             },
           },
         });
