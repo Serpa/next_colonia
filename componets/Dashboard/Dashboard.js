@@ -23,7 +23,6 @@ import { useState } from 'react';
 import { MeetingRoom } from '@mui/icons-material';
 import { signOut } from 'next-auth/react';
 import { useForm } from "react-hook-form";
-import Cadastro from '../Cadastro';
 
 function Copyright(props) {
   return (
@@ -170,16 +169,9 @@ function DashboardContent(props) {
               <Paper
                 sx={{
                   p: 2,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  height: 'auto',
+                  display: 'flex', flexDirection: 'column', height: '90vh'
                 }}
               >
-                <Cadastro></Cadastro>
-              </Paper>
-            </Grid>
-            <Grid item xs={12}>
-              <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', height: '90vh' }}>
                 <Pescadores />
               </Paper>
             </Grid>

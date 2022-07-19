@@ -28,4 +28,4 @@ export default async function pescadores(req, res) {
     res.status(401);
   }
   res.end();
-}
+};

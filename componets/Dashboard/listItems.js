@@ -11,10 +11,19 @@ import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { HistoryEdu, HowToReg } from '@mui/icons-material';
 import Link from 'next/link';
+import HomeIcon from '@mui/icons-material/Home';
 
 export const mainListItems = (
   <React.Fragment>
-    <Link href="/cadastro">
+    <Link href="/dashboard">
+    <ListItemButton>
+      <ListItemIcon>
+        <HomeIcon />
+      </ListItemIcon>
+      <ListItemText primary="Início" />
+    </ListItemButton>
+    </Link>
+    <Link href="/cadastro_pescador">
     <ListItemButton>
       <ListItemIcon>
         <HowToReg />

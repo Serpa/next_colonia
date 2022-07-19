@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 import { saveAs } from "file-saver";
+import { Button } from "@mui/material";
 let PizZipUtils = null;
 if (typeof window !== "undefined") {
   import("pizzip/utils/index.js").then(function (r) {
@@ -44,7 +45,7 @@ export default function Docx(props) {
 
   return (
     <div className="p-2">
-      <button onClick={generateDocument}>Desfiliação</button>
+      <Button variant="contained" onClick={generateDocument}>Desfiliação</Button>
     </div>
   );
 }

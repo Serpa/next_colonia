@@ -12,7 +12,7 @@ export default function ToolbarGrid() {
   }, [])
 
   const columns = [
-    { field: 'ficha', headerName: 'Ficha', flex: 1 },
+    { field: 'ficha', headerName: 'Ficha' },
     { field: 'nome', headerName: 'Nome', flex: 1 },
     { field: 'telefone', headerName: 'Telefone', flex: 1 },
     { field: 'celular', headerName: 'Celular', flex: 1 },
@@ -60,6 +60,7 @@ export default function ToolbarGrid() {
     <DataGrid
       rows={tableData}
       columns={columns}
+      allowColumnResizing={true}
       onCellClick={handleOnCellClick}
       rowsPerPageOptions={[5, 10, 20, 100]}
       components={{

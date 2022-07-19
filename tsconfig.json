@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/registerPescador.js", "pages/api/pescadores.js", "componets/Dashboard/Dashboard.js", "componets/Dashboard/Pescadores.js"  ],
+, "pages/cadastro_pescador.jsx", "componets/Cadastro.jsx", "pages/cadastro_pescador.jsx", "componets/Cadastro.jsx", "pages/api/pescadores.js", "pages/api/registerPescador.js", "pages/api/pescadores.js", "componets/Dashboard/Dashboard.js", "componets/Dashboard/Pescadores.js"  ],
   "exclude": [
     "node_modules"
   ]
