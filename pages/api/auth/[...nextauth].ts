@@ -5,13 +5,10 @@ import CredentialsProvider from "next-auth/providers/credentials";
 let userAccount = null;
 
 const prisma = new PrismaClient();
-const bcrypt = require('bcryptjs');
 
 const confirmPasswordHash = (plainPassword, hashedPassword) => {
   return new Promise((resolve) => {
-    bcrypt.compare(plainPassword, hashedPassword, function (err, res) {
-      resolve(res);
-    });
+    resolve(Object.is(plainPassword,hashedPassword));
   });
 };
 
@@ -33,7 +30,6 @@ export default NextAuth({
 
           if (user !== null) {
             //Compare the hash
-            const hash = await bcrypt.hash(credentials.senha, 0);
 
             const res = await confirmPasswordHash(
               credentials.senha,

@@ -5,6 +5,7 @@ export default function dashboard() {
   return (
     <>
       <Dashboard />
+      <button onClick={()=>signOut()}>Sair</button>
     </>
   );
 }
