@@ -9,7 +9,7 @@ export default function Wrapper(props)
     const router = useRouter();
 
     if ((session !== null && session?.status === "authenticated") ||
-        (router.pathname === "/login" || router.pathname === '/register'))
+        (router.pathname === "/" || router.pathname === '/reg'))
     {
         return (
             props.children
@@ -20,7 +20,7 @@ export default function Wrapper(props)
             <>
                 <h1>You are not authenticated</h1>
 
-                <Link href='/login'>Back to Login</Link>
+                <Link href='/'>Back to Login</Link>
             </>
         )
     }
