@@ -111,7 +111,7 @@ export default NextAuth({
       return session;
     },
     async jwt({ token, user, account }) {
-      console.log("JWT callback. Got User: ", token);
+      console.log("JWT callback. Got User: ", token, user);
       if (typeof user !== typeof undefined) {
         token.user = user;
       }
