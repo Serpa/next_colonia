@@ -1,10 +1,11 @@
 import { PrismaClient } from "@prisma/client";
-import { getToken } from "next-auth/jwt";
+import { unstable_getServerSession } from "next-auth";
+import { authOptions } from "./auth/[...nextauth]"
 const prisma = new PrismaClient();
 
 export default async function Register(req, res) {
-  const token = await getToken({ req });
-  if (token) {
+  const session = await unstable_getServerSession(req, res, authOptions)
+  if (session) {
     if (req.method === "POST") {
       let { ...data } = req.body;
       data = { ...data, acesso: token.user.acess };

@@ -27,14 +27,12 @@ export default function ToolbarGrid() {
           <Button
             variant="contained"
             color="warning"
-            onClick={(event) => {
-              console.log(event.row);;
-            }}
+            onClick={()=>console.log()}
           >
             Alterar
           </Button>
         );
-      }
+      }, flex: 1
     },
     {
       field: "Documentos",
@@ -43,25 +41,22 @@ export default function ToolbarGrid() {
           <Docx
             variant="contained"
             color="primary"
-            dados={cellValues}
+            dados={cellValues.row}
+
           >
             Documentos
           </Docx>
         );
-      }
+      }, flex: 1
     }
   ]
 
-  const handleOnCellClick = (params) => {
-    console.log(params);
-  };
 
   return (
     <DataGrid
       rows={tableData}
       columns={columns}
       allowColumnResizing={true}
-      onCellClick={handleOnCellClick}
       rowsPerPageOptions={[5, 10, 20, 100]}
       components={{
         Toolbar: GridToolbar,

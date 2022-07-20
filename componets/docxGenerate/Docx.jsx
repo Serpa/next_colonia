@@ -3,6 +3,7 @@ import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 import { saveAs } from "file-saver";
 import { Button } from "@mui/material";
+const path = require("path");
 let PizZipUtils = null;
 if (typeof window !== "undefined") {
   import("pizzip/utils/index.js").then(function (r) {
@@ -21,8 +22,9 @@ export default function Docx(props) {
   var ano = data.getFullYear();
   var dataAtual = dia + "/" + mes + "/" + ano;
   const pescador = { ...props.dados, data: dataAtual };
+  const content = path.resolve(__dirname, "docs", "formulario.docx");
   const generateDocument = () => {
-    loadFile('./formulario.docx', function (error, content) {
+    loadFile(content, function (error, content) {
       if (error) {
         throw error;
       }
@@ -45,7 +47,9 @@ export default function Docx(props) {
 
   return (
     <div className="p-2">
-      <Button variant="contained" onClick={generateDocument}>Desfiliação</Button>
+      <Button variant="contained" onClick={generateDocument}>
+        Desfiliação
+      </Button>
     </div>
   );
 }
